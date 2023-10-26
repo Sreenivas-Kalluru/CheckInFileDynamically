@@ -22,6 +22,7 @@ jobs:
         with:
           repository: Sreenivas-Kalluru/CheckInFileDynamically.git
           ref: main # or the branch you want to work   with
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Sync Meta data Information 
         run: Scripts/syncMetadata.sh
@@ -34,8 +35,6 @@ jobs:
           git commit -m 'Data Updated' ||  echo 'No changes to commit'
           git fetch origin main
           git push origin HEAD:main || echo "Error occurred while push to origin"
-        with:
-          github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Check for differences
         run: |
