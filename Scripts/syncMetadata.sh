@@ -8,4 +8,4 @@ repo_url=https://github.com/Microsoft/vcpkg
 
 content=$(cat commit.txt)
 echo "File created with recent Commit Id value: $content"
-echo "commit txt file"
+echo "commit txt file test"

@@ -3,6 +3,12 @@ name: Sample Site Validation
 on:
   pull_request:
 
+permissions:
+  pull-requests: write
+  issues: write
+  repository-projects: write
+  contents: write
+
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -28,6 +34,8 @@ jobs:
           git commit -m 'Data Updated' ||  echo 'No changes to commit'
           git fetch origin main
           git push origin HEAD:main || echo "Error occurred while push to origin"
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
 
       - name: Check for differences
         run: |
